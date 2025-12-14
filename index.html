@@ -3,46 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Faculty application homepage: research, publications, teaching, and contact." />
+  <meta name="description" content="Faculty application homepage" />
   <title>Your Name — Faculty Application</title>
 
   <style>
     :root{
-      --bg:#070a12;
-      --panel: rgba(255,255,255,0.055);
-      --panel2: rgba(255,255,255,0.075);
-      --text: rgba(255,255,255,0.90);
-      --muted: rgba(255,255,255,0.66);
-      --line: rgba(255,255,255,0.12);
-      --shadow: 0 18px 60px rgba(0,0,0,0.45);
-      --radius: 18px;
+      --bg: #ffffff;
+      --panel: #f8fafc;
+      --panel2: #ffffff;
+      --text: #0f172a;       /* slate-900 */
+      --muted: #475569;      /* slate-600 */
+      --line: #e2e8f0;       /* slate-200 */
+      --accent: #2563eb;     /* blue-600 */
+      --accent-soft: #dbeafe;
+      --radius: 14px;
       --max: 1040px;
+      --shadow: 0 10px 24px rgba(15,23,42,0.08);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --accent1:#60a5fa; /* blue */
-      --accent2:#22c55e; /* green */
-      --accent3:#a78bfa; /* purple */
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
     *{ box-sizing: border-box; }
-    html,body{ height:100%; }
     html{ scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: var(--sans);
       color: var(--text);
-      background:
-        radial-gradient(1100px 700px at 10% 8%, rgba(96,165,250,0.20), transparent 60%),
-        radial-gradient(900px 700px at 85% 12%, rgba(167,139,250,0.18), transparent 62%),
-        radial-gradient(900px 700px at 55% 95%, rgba(34,197,94,0.14), transparent 60%),
-        var(--bg);
+      background: var(--bg);
       line-height: 1.55;
     }
 
-    a{ color: inherit; text-decoration: none; }
+    a{ color: var(--accent); text-decoration: none; }
     a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px 18px 54px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 56px; }
 
     /* Top bar */
     .top{
@@ -50,450 +44,140 @@
       align-items:center;
       justify-content:space-between;
       gap: 12px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.18);
-      backdrop-filter: blur(10px);
       border-radius: 999px;
+      background: #ffffff;
       box-shadow: var(--shadow);
       position: sticky;
       top: 12px;
       z-index: 10;
     }
-    .brand{ display:flex; align-items:center; gap: 10px; padding: 6px 10px; }
-    .sig{
-      width: 34px; height: 34px; border-radius: 12px;
-      background:
-        radial-gradient(18px 18px at 30% 35%, rgba(255,255,255,0.22), transparent 60%),
-        linear-gradient(135deg, rgba(96,165,250,0.95), rgba(167,139,250,0.75));
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 16px 44px rgba(96,165,250,0.18);
+
+    .brand{ display:flex; align-items:center; gap: 10px; }
+    .mark{
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
     }
-    .brand .name{ font-weight: 750; font-size: 14px; letter-spacing: 0.2px; }
+    .brand .name{ font-weight: 700; font-size: 14px; }
     .brand .meta{ font-size: 12px; color: var(--muted); margin-top: -2px; }
 
-    .nav{ display:flex; gap: 10px; flex-wrap: wrap; justify-content:flex-end; padding: 6px 10px; }
+    .nav{ display:flex; gap: 10px; flex-wrap: wrap; }
     .pill{
       font-size: 13px;
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      white-space: nowrap;
+      background: #ffffff;
+      color: var(--text);
     }
-    .pill:hover{
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,255,255,0.20);
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
+    .pill:hover{ background: var(--panel); text-decoration:none; }
 
     /* Hero */
     .hero{
-      margin-top: 22px;
+      margin-top: 24px;
       padding: 28px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+      background: var(--panel2);
     }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(560px 280px at 18% 22%, rgba(96,165,250,0.18), transparent 66%),
-        radial-gradient(560px 280px at 82% 28%, rgba(167,139,250,0.14), transparent 70%),
-        radial-gradient(560px 280px at 52% 92%, rgba(34,197,94,0.10), transparent 70%);
-      filter: blur(2px);
-      pointer-events:none;
-    }
-    .hero > *{ position: relative; }
 
     .kicker{
-      display:inline-flex; align-items:center; gap: 10px;
+      display:inline-block;
       font-family: var(--mono);
       font-size: 12px;
+      color: var(--muted);
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.20);
-      color: rgba(255,255,255,0.78);
+      background: var(--panel);
     }
-    .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent2); box-shadow: 0 0 0 4px rgba(34,197,94,0.12); }
 
     h1{
       margin: 14px 0 10px;
-      font-size: clamp(28px, 4.5vw, 48px);
-      line-height: 1.12;
-      letter-spacing: -0.7px;
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.6px;
     }
-    .subtitle{ margin:0; color: var(--muted); font-size: 16px; max-width: 80ch; }
 
-    .cta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .subtitle{
+      margin:0;
+      max-width: 85ch;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
     .btn{
-      border: 1px solid var(--line);
-      border-radius: 14px;
       padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #ffffff;
       font-size: 14px;
-      background: rgba(255,255,255,0.05);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      display:inline-flex; align-items:center; gap: 10px;
+      color: var(--text);
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); text-decoration: none; }
     .btn.primary{
-      border-color: rgba(96,165,250,0.55);
-      background: linear-gradient(135deg, rgba(96,165,250,0.92), rgba(167,139,250,0.62));
-      box-shadow: 0 16px 44px rgba(96,165,250,0.15);
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
     }
+    .btn:hover{ text-decoration:none; }
 
     /* Layout */
     .grid{
       display:grid;
       grid-template-columns: 1.35fr 0.65fr;
-      gap: 16px;
-      margin-top: 16px;
+      gap: 18px;
+      margin-top: 18px;
     }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
 
     section, aside .panel{
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
       border-radius: var(--radius);
+      background: var(--panel2);
     }
     section{ padding: 22px; }
-    aside{ display:flex; flex-direction: column; gap: 12px; }
-    aside .panel{ padding: 14px; background: rgba(0,0,0,0.18); }
+    aside{ display:flex; flex-direction: column; gap: 14px; }
+    aside .panel{ padding: 14px; background: var(--panel); }
 
     .section-title{
-      display:flex; align-items: baseline; justify-content: space-between; gap: 12px;
-      margin: 0 0 12px;
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 12px;
     }
-    .section-title h2{ margin:0; font-size: 18px; letter-spacing: -0.2px; }
-    .section-title span{ font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .section-title span{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
 
     /* Cards */
     .cards{
       display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 12px;
     }
-    @media (max-width: 720px){ .cards{ grid-template-columns: 1fr; } }
+    @media (max-width: 720px){
+      .cards{ grid-template-columns: 1fr; }
+    }
 
     .card{
       padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,0.18);
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-    }
-    .card:hover{ transform: translateY(-2px); background: rgba(0,0,0,0.22); border-color: rgba(255,255,255,0.20); text-decoration: none; }
-
-    .card h3{ margin: 0 0 6px; font-size: 15px; letter-spacing: -0.2px; }
-    .card p{ margin: 0 0 10px; color: var(--muted); font-size: 13px; }
-
-    .meta{
-      display:flex; gap: 8px; flex-wrap: wrap; align-items:center;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(255,255,255,0.72);
-    }
-    .badge{
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-    }
-
-    /* Lists */
-    .bullets{ margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
-    .bullets li{ margin: 6px 0; }
-
-    .pub{
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,0.16);
-    }
-    .pub + .pub{ margin-top: 10px; }
-    .pub .t{ font-weight: 650; }
-    .pub .a{ color: var(--muted); font-size: 13px; margin-top: 4px; }
-    .pub .l{ margin-top: 8px; display:flex; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.75); }
-    .pub .l a{ border-bottom: 1px dashed rgba(255,255,255,0.25); padding-bottom: 2px; }
-    .pub .l a:hover{ text-decoration:none; border-bottom-color: rgba(255,255,255,0.55); }
-
-    .mono{ font-family: var(--mono); }
-    footer{ margin-top: 18px; padding: 16px; text-align:center; color: rgba(255,255,255,0.50); font-size: 12px; }
-  </style>
-</head>
-
-<body>
-  <div class="wrap">
-
-    <div class="top" aria-label="Top navigation">
-      <a class="brand" href="#top">
-        <div class="sig" aria-hidden="true"></div>
-        <div>
-          <div class="name">Your Name, PhD</div>
-          <div class="meta">Assistant Professor Candidate · Computational Biology / ML</div>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a class="pill" href="#research">Research</a>
-        <a class="pill" href="#publications">Publications</a>
-        <a class="pill" href="#teaching">Teaching</a>
-        <a class="pill" href="#mentoring">Mentoring</a>
-        <a class="pill" href="#service">Service</a>
-        <a class="pill" href="#contact">Contact</a>
-        <a class="pill" href="https://github.com/your-username" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-    </div>
-
-    <main id="top">
-      <header class="hero">
-        <div class="kicker"><span class="dot"></span> Faculty application materials · Updated: <span id="updated" class="mono"></span></div>
-        <h1>Machine learning for biological sequence understanding — from representations to biological insight.</h1>
-        <p class="subtitle">
-          One–two sentence research statement. Example: I develop scalable representation learning methods for DNA/protein sequences,
-          with applications to alignment, variant interpretation, and structure/function prediction.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="assets/cv.pdf">CV (PDF)</a>
-          <a class="btn" href="assets/research-statement.pdf">Research Statement</a>
-          <a class="btn" href="assets/teaching-statement.pdf">Teaching Statement</a>
-          <a class="btn" href="assets/diversity-statement.pdf">DEI Statement</a>
-        </div>
-      </header>
-
-      <div class="grid">
-        <div>
-          <section id="research">
-            <div class="section-title">
-              <h2>Research vision</h2>
-              <span>what you do · why it matters</span>
-            </div>
-
-            <p style="margin:0;color:var(--muted);max-width:90ch;">
-              Write a clear thesis: your north star + methodological angle + biological impact. Keep it concrete: what problems,
-              what techniques, and what outcomes you deliver (algorithms, theory, datasets, systems, collaborations).
-            </p>
-
-            <div style="height:12px"></div>
-
-            <div class="cards" aria-label="Research thrusts">
-              <div class="card">
-                <h3>Thrust 1: Representation learning for sequences</h3>
-                <p>
-                  2–3 lines: new objectives/architectures, efficiency, interpretability; connect to biology.
-                </p>
-                <div class="meta">
-                  <span class="badge">Foundations</span><span class="badge">Scalability</span><span class="badge">Interpretability</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <h3>Thrust 2: Protein alignment & retrieval</h3>
-                <p>
-                  2–3 lines: alignment scoring, search/retrieval, structure/function-aware pipelines.
-                </p>
-                <div class="meta">
-                  <span class="badge">MSA</span><span class="badge">PLMs</span><span class="badge">Structure</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <h3>Thrust 3: Genomic variants & phenotype association</h3>
-                <p>
-                  2–3 lines: patient-level modeling, phased variants, multimodal phenotypes, causal discovery.
-                </p>
-                <div class="meta">
-                  <span class="badge">Variants</span><span class="badge">GWAS+</span><span class="badge">Multimodal</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <h3>Software & open science</h3>
-                <p>
-                  2–3 lines: reproducible benchmarks, datasets, tooling, community adoption.
-                </p>
-                <div class="meta">
-                  <span class="badge">Reproducibility</span><span class="badge">Benchmarks</span><span class="badge">Open-source</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="publications" style="margin-top:16px;">
-            <div class="section-title">
-              <h2>Selected publications</h2>
-              <span>5–10 best items</span>
-            </div>
-
-            <!-- Copy this block per paper -->
-            <div class="pub">
-              <div class="t">Paper Title (Conference/Journal, Year)</div>
-              <div class="a">Your Name, Coauthor A, Coauthor B. <em>Venue</em>.</div>
-              <div class="l">
-                <a href="#" target="_blank" rel="noreferrer">PDF</a>
-                <a href="#" target="_blank" rel="noreferrer">Code</a>
-                <a href="#" target="_blank" rel="noreferrer">arXiv</a>
-                <span class="badge">Best paper (optional)</span>
-              </div>
-            </div>
-
-            <div class="pub">
-              <div class="t">Paper Title (Conference/Journal, Year)</div>
-              <div class="a">Your Name, Coauthor A, Coauthor B. <em>Venue</em>.</div>
-              <div class="l">
-                <a href="#" target="_blank" rel="noreferrer">PDF</a>
-                <a href="#" target="_blank" rel="noreferrer">Code</a>
-                <a href="#" target="_blank" rel="noreferrer">Dataset</a>
-              </div>
-            </div>
-
-            <div style="height:10px"></div>
-            <div class="meta">
-              <span class="badge">Full list: <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar</a></span>
-              <span class="badge">ORCID: <a href="https://orcid.org/" target="_blank" rel="noreferrer">0000-0000-0000-0000</a></span>
-            </div>
-          </section>
-
-          <section id="talks" style="margin-top:16px;">
-            <div class="section-title">
-              <h2>Talks & media</h2>
-              <span>visibility</span>
-            </div>
-            <ul class="bullets">
-              <li><span class="mono">2025</span> — Invited talk, Workshop/Department, “Title” (<a href="#" target="_blank" rel="noreferrer">slides</a>)</li>
-              <li><span class="mono">2024</span> — Conference talk/poster, “Title” (<a href="#" target="_blank" rel="noreferrer">poster</a>)</li>
-              <li><span class="mono">2023</span> — Podcast/interview/blog feature (<a href="#" target="_blank" rel="noreferrer">link</a>)</li>
-            </ul>
-          </section>
-
-          <section id="teaching" style="margin-top:16px;">
-            <div class="section-title">
-              <h2>Teaching</h2>
-              <span>courses · pedagogy</span>
-            </div>
-
-            <div class="cards">
-              <div class="card">
-                <h3>Course: Machine Learning for Biology</h3>
-                <p>1–2 lines: audience, key topics, hands-on components, assignments, outcomes.</p>
-                <div class="meta"><span class="badge">New course</span><span class="badge">Project-based</span></div>
-              </div>
-
-              <div class="card">
-                <h3>Course: Algorithms & Data Structures (for scientists)</h3>
-                <p>1–2 lines: bridging math barriers, accessible intuition, practical tooling.</p>
-                <div class="meta"><span class="badge">Inclusive</span><span class="badge">Active learning</span></div>
-              </div>
-            </div>
-
-            <div style="height:12px"></div>
-            <p style="margin:0;color:var(--muted);max-width:90ch;">
-              Add 2–4 bullets on teaching philosophy: inclusive instruction, mentorship, reproducible computing,
-              evidence-based assessment, etc.
-            </p>
-          </section>
-
-          <section id="mentoring" style="margin-top:16px;">
-            <div class="section-title">
-              <h2>Mentoring</h2>
-              <span>students · collaborators</span>
-            </div>
-            <ul class="bullets">
-              <li>Mentored <strong>Student Name</strong> (UG/MS) — project outcome (paper/poster/open-source).</li>
-              <li>Advised <strong>Student Name</strong> — method/system, released toolkit, won award, etc.</li>
-              <li>Collaborations: Lab A (topic), Lab B (topic).</li>
-            </ul>
-          </section>
-
-          <section id="service" style="margin-top:16px;">
-            <div class="section-title">
-              <h2>Service</h2>
-              <span>community contributions</span>
-            </div>
-            <ul class="bullets">
-              <li>Reviewer: NeurIPS / ICLR / RECOMB / ISMB (edit as appropriate).</li>
-              <li>Workshop organizer / session chair / program committee.</li>
-              <li>Open-source maintainer; dataset/benchmark curation.</li>
-            </ul>
-          </section>
-        </div>
-
-        <aside aria-label="Sidebar">
-          <div class="panel">
-            <h3>Appointment interests</h3>
-            <div class="meta" style="margin-top:6px;">
-              <span class="badge">CS</span>
-              <span class="badge">Computational Biology</span>
-              <span class="badge">ML / AI</span>
-              <span class="badge">Genomics</span>
-              <span class="badge">Proteomics</span>
-            </div>
-          </div>
-
-          <div class="panel">
-            <h3>Research keywords</h3>
-            <ul class="bullets">
-              <li>Protein language models, alignment, retrieval</li>
-              <li>Genomic variants, patient-level modeling</li>
-              <li>Efficient algorithms & benchmarks</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <h3>Funding fit (optional)</h3>
-            <ul class="bullets">
-              <li>NIH / NSF programs</li>
-              <li>Foundation opportunities</li>
-              <li>Industry partnerships</li>
-            </ul>
-          </div>
-
-          <div class="panel" id="contact">
-            <h3>Contact</h3>
-            <div class="mono" style="color:rgba(255,255,255,0.78);">
-              you@university.edu
-            </div>
-            <div style="height:10px"></div>
-            <div class="meta">
-              <span class="badge"><a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Scholar</a></span>
-              <span class="badge"><a href="https://github.com/your-username" target="_blank" rel="noreferrer">GitHub</a></span>
-              <span class="badge"><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a></span>
-              <span class="badge"><a href="https://twitter.com/your-handle" target="_blank" rel="noreferrer">X</a></span>
-            </div>
-          </div>
-
-          <div class="panel">
-            <h3>Quick links</h3>
-            <ul class="bullets">
-              <li><a href="assets/cv.pdf">CV (PDF)</a></li>
-              <li><a href="assets/research-statement.pdf">Research Statement</a></li>
-              <li><a href="assets/teaching-statement.pdf">Teaching Statement</a></li>
-              <li><a href="assets/job-talk-slides.pdf">Job Talk Slides</a></li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-
-      <footer>
-        © <span id="y"></span> Your Name · Hosted on GitHub Pages · <span class="mono">index.html</span>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-    // Human-friendly "Updated" stamp
-    const d = new Date();
-    const opts = { year: 'numeric', month: 'short', day: '2-digit' };
-    document.getElementById("updated").textContent = d.toLocaleDateString(undefined, opts);
-  </script>
-</body>
-</html>
+      border-radi
