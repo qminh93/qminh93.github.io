@@ -180,4 +180,214 @@
 
     .card{
       padding: 14px;
-      border-radi
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .card h3{ margin: 0 0 6px; font-size: 15px; }
+    .card p{ margin: 0 0 8px; font-size: 13px; color: var(--muted); }
+
+    .meta{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .badge{
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    /* Publications */
+    .pub{
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .pub + .pub{ margin-top: 10px; }
+    .pub .t{ font-weight: 600; }
+    .pub .a{ margin-top: 4px; font-size: 13px; color: var(--muted); }
+    .pub .l{
+      margin-top: 8px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    ul{ padding-left: 18px; color: var(--muted); font-size: 13px; }
+    li{ margin: 6px 0; }
+
+    footer{
+      margin-top: 22px;
+      padding: 16px;
+      text-align:center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <a class="brand" href="#top">
+        <div class="mark"></div>
+        <div>
+          <div class="name">Your Name, PhD</div>
+          <div class="meta">Faculty Candidate · Computational Biology / ML</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a class="pill" href="#research">Research</a>
+        <a class="pill" href="#publications">Publications</a>
+        <a class="pill" href="#teaching">Teaching</a>
+        <a class="pill" href="#service">Service</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <header class="hero" id="top">
+      <span class="kicker">Faculty application materials · Updated <span id="d"></span></span>
+      <h1>Machine learning for biological sequence understanding</h1>
+      <p class="subtitle">
+        I develop scalable and interpretable machine learning methods for protein and genomic sequences,
+        with applications to alignment, variant interpretation, and structure–function modeling.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="assets/cv.pdf">CV (PDF)</a>
+        <a class="btn" href="assets/research-statement.pdf">Research Statement</a>
+        <a class="btn" href="assets/teaching-statement.pdf">Teaching Statement</a>
+        <a class="btn" href="assets/job-talk.pdf">Job Talk</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div>
+        <section id="research">
+          <div class="section-title">
+            <h2>Research vision</h2>
+            <span>agenda & impact</span>
+          </div>
+          <p class="subtitle">
+            Brief paragraph articulating your long-term vision, methodological contributions,
+            and biological significance.
+          </p>
+
+          <div style="height:12px"></div>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Representation learning for sequences</h3>
+              <p>Objectives, theory, efficiency, interpretability.</p>
+              <div class="meta"><span class="badge">Foundations</span></div>
+            </div>
+            <div class="card">
+              <h3>Protein alignment & retrieval</h3>
+              <p>PLM-based scoring, search, structure-aware pipelines.</p>
+              <div class="meta"><span class="badge">MSA</span></div>
+            </div>
+            <div class="card">
+              <h3>Genomic variants & phenotypes</h3>
+              <p>Patient-level modeling, phased variants, multimodal data.</p>
+              <div class="meta"><span class="badge">Genomics</span></div>
+            </div>
+            <div class="card">
+              <h3>Open benchmarks & software</h3>
+              <p>Reproducible systems and community resources.</p>
+              <div class="meta"><span class="badge">Open Science</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="publications" style="margin-top:16px;">
+          <div class="section-title">
+            <h2>Selected publications</h2>
+            <span>representative work</span>
+          </div>
+
+          <div class="pub">
+            <div class="t">Paper Title (Conference, Year)</div>
+            <div class="a">Your Name, Coauthors</div>
+            <div class="l">
+              <a href="#">PDF</a>
+              <a href="#">Code</a>
+              <a href="#">arXiv</a>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="t">Paper Title (Journal, Year)</div>
+            <div class="a">Your Name, Coauthors</div>
+            <div class="l">
+              <a href="#">PDF</a>
+              <a href="#">Dataset</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="teaching" style="margin-top:16px;">
+          <div class="section-title">
+            <h2>Teaching</h2>
+            <span>courses & philosophy</span>
+          </div>
+          <ul>
+            <li>Machine Learning for Biology — project-based, inclusive design</li>
+            <li>Algorithms & Data Structures — accessible for scientists</li>
+          </ul>
+        </section>
+
+        <section id="service" style="margin-top:16px;">
+          <div class="section-title">
+            <h2>Service</h2>
+            <span>community</span>
+          </div>
+          <ul>
+            <li>Reviewer: NeurIPS, ICLR, ISMB, RECOMB</li>
+            <li>Workshop organization and open-source maintenance</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <h3>Appointment interests</h3>
+          <div class="meta">
+            <span class="badge">CS</span>
+            <span class="badge">Computational Biology</span>
+            <span class="badge">AI / ML</span>
+          </div>
+        </div>
+
+        <div class="panel" id="contact">
+          <h3>Contact</h3>
+          <div class="meta">you@university.edu</div>
+          <div class="meta" style="margin-top:8px;">
+            <span class="badge"><a href="#">Google Scholar</a></span>
+            <span class="badge"><a href="#">GitHub</a></span>
+            <span class="badge"><a href="#">ORCID</a></span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Your Name · GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("d").textContent =
+      new Date().toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'});
+  </script>
+</body>
+</html>
