@@ -84,6 +84,28 @@
       background: var(--panel2);
     }
 
+    .hero-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 20px;
+    }
+    .hero-text{ flex: 1; min-width: 0; }
+    
+    .headshot{
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    
+    @media (max-width: 900px){
+      .hero-row{ flex-direction: column-reverse; align-items:flex-start; }
+      .headshot{ width: 150px; height: 150px; }
+    }
+
     .kicker{
       display:inline-block;
       font-family: var(--mono);
@@ -240,7 +262,6 @@
 
     <div class="top">
       <a class="brand" href="#top">
-        <div class="mark"></div>
         <div>
           <div class="name">Minh Hoang, PhD</div>
           <div class="meta">Postdoctoral Associate</div>
@@ -254,19 +275,25 @@
         <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
-
+    
     <header class="hero" id="top">
-      <span class="kicker">About me</span>
-      <h1>Machine learning for biological sequence understanding</h1>
-      <p class="subtitle">
-        I am a computational biologist developing machine learning methods for biological sequence analysis. 
-        My research focuses on representation learning for protein and genomic sequences across multiple computational scales, from single-site analyses to large, collaborative learning settings. 
-        I design scalable and interpretable approaches for alignment, retrieval, and variant interpretation, with the goal of connecting sequence-level representations to biological structure, function, and phenotype.
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="assets/cv.pdf">CV (PDF)</a>
-        <a class="btn" href="assets/research-statement.pdf">Research Statement</a>
-        <a class="btn" href="assets/teaching-statement.pdf">Teaching Statement</a>
+      <div class="hero-row">
+        <div class="hero-text">
+          <span class="kicker">About me</span>
+          <h1>Machine learning for biological sequence understanding</h1>
+          <p class="subtitle">
+            I am a computational biologist developing machine learning methods for biological sequence analysis. 
+            My research focuses on representation learning for protein and genomic sequences across multiple computational scales, from single-site analyses to large, collaborative learning settings. 
+            I design scalable and interpretable approaches for alignment, retrieval, and variant interpretation, with the goal of connecting sequence-level representations to biological structure, function, and phenotype.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="assets/cv.pdf">CV (PDF)</a>
+            <a class="btn" href="assets/research-statement.pdf">Research Statement</a>
+            <a class="btn" href="assets/teaching-statement.pdf">Teaching Statement</a>
+          </div>
+        </div>
+    
+        <img class="headshot" src="MH_photo.png" alt="Minh Hoang headshot" />
       </div>
     </header>
 
